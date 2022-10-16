@@ -1,17 +1,9 @@
-import { Modal } from "@mui/material";
-import React, { useState } from "react";
-import { CreateTweet } from "../../components/CreateTweet";
+import React from "react";
 import { ListHomePage } from "../../components/ListHomePage";
-import { ModalPost } from "../../components/ModalPost";
 import { NewPost } from "../../components/NewPost";
 import { SectionSearchRight } from "../../components/SectionSearchRight";
 
-export const HomePage = () => {
-  const [openModalPost, setOpenModalPost] = useState(false)
-  const handleClick = () => {
-    setOpenModalPost(true);
-  }
-
+export const DetailPost = () => {
   return (
     <div
       style={{
@@ -37,10 +29,9 @@ export const HomePage = () => {
             position: "fixed",
           }}
         >
-          <ListHomePage onClick={handleClick} />
+          <ListHomePage onClick={() => {}} />
         </div>
       </div>
-
       <div
         style={{
           background: "black",
@@ -48,17 +39,8 @@ export const HomePage = () => {
           borderRight: "1px solid rgb(113, 118, 123)",
         }}
       >
-        <CreateTweet
-          openModalPost={openModalPost}
-          setOpenModalPost={setOpenModalPost}
-        />
-        <NewPost />
-        <NewPost />
-        <Modal open={openModalPost} onClose={() => setOpenModalPost(false)}>
-          <ModalPost onClose={() => setOpenModalPost(false)} />
-        </Modal>
+        <NewPost detail/>
       </div>
-
       <div style={{ background: "black" }}>
         <SectionSearchRight />
       </div>

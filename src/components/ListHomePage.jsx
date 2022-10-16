@@ -15,6 +15,38 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import { CardProfile } from "./CardProfile";
+
+const listNavigate = [
+  {
+    icon: <HomeIcon style={{color: 'white', width: '30px', height: '30px'}}/>,
+    text: "Home",
+  },
+  {
+    icon: <TagIcon style={{color: 'white', width: '30px', height: '30px'}}/>,
+    text: "Explore",
+  },
+  {
+    icon: <NotificationsNoneIcon style={{color: 'white', width: '30px', height: '30px'}}/>,
+    text: "Notifications",
+  },
+  {
+    icon: <MailOutlineIcon style={{color: 'white', width: '30px', height: '30px'}}/>,
+    text: "Message",
+  },
+  {
+    icon: <BookmarksIcon style={{color: 'white', width: '30px', height: '30px'}}/>,
+    text: "Bookmarks",
+  },
+  {
+    icon: <ListAltIcon style={{color: 'white', width: '30px', height: '30px'}}/>,
+    text: "List",
+  },
+  {
+    icon: <PersonOutlineIcon style={{color: 'white', width: '30px', height: '30px'}}/>,
+    text: "Profile",
+  },
+];
 
 export const ListHomePage = ({ onClick }) => {
   return (
@@ -30,219 +62,35 @@ export const ListHomePage = ({ onClick }) => {
         }}
       />
       <List>
-        <ListItem
-          disablePadding
-          style={{
-            marginTop: "70px",
-            width: "50%",
-            borderRadius: "20px",
-          }}
-        >
-          <ListItemButton
+        {listNavigate.map((list, i) => (
+          <ListItem
+            disablePadding
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
+              marginTop: `${i === 0 ? "70px" : "15px"}`,
+              width: "50%",
+              borderRadius: "20px",
             }}
           >
-            <HomeIcon
-              style={{ color: "white", width: "30px", height: "30px" }}
-            />
-            <div style={{ width: "100%", marginLeft: "30px" }}>
-              <Typography
-                color="white"
-                variant="h6"
-                style={{ fontWeight: "bolder" }}
-              >
-                Home
-              </Typography>
-            </div>
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem
-          disablePadding
-          style={{
-            marginTop: "20px",
-            width: "54%",
-            borderRadius: "20px",
-          }}
-        >
-          <ListItemButton
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <TagIcon
-              style={{ color: "white", width: "30px", height: "30px" }}
-            />
-            <div style={{ width: "100%", marginLeft: "30px" }}>
-              <Typography
-                color="white"
-                variant="h6"
-                style={{ fontWeight: "lighter" }}
-              >
-                Explore
-              </Typography>
-            </div>
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem
-          disablePadding
-          style={{
-            marginTop: "20px",
-            width: "73%",
-            borderRadius: "20px",
-          }}
-        >
-          <ListItemButton
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <Badge badgeContent={4} color="primary">
-              <NotificationsNoneIcon
-                style={{ color: "white", width: "30px", height: "30px" }}
-              />
-            </Badge>
-            <div style={{ width: "100%", marginLeft: "30px" }}>
-              <Typography
-                color="white"
-                variant="h6"
-                style={{ fontWeight: "lighter" }}
-              >
-                Notifications
-              </Typography>
-            </div>
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem
-          disablePadding
-          style={{
-            marginTop: "20px",
-            width: "61%",
-            borderRadius: "20px",
-          }}
-        >
-          <ListItemButton
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <Badge badgeContent={1} color="primary">
-              <MailOutlineIcon
-                style={{ color: "white", width: "30px", height: "30px" }}
-              />
-            </Badge>
-            <div style={{ width: "100%", marginLeft: "30px" }}>
-              <Typography
-                color="white"
-                variant="h6"
-                style={{ fontWeight: "lighter" }}
-              >
-                Message
-              </Typography>
-            </div>
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem
-          disablePadding
-          style={{
-            marginTop: "20px",
-            width: "68%",
-            borderRadius: "20px",
-          }}
-        >
-          <ListItemButton
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <BookmarksIcon
-              style={{ color: "white", width: "30px", height: "30px" }}
-            />
-            <div style={{ width: "100%", marginLeft: "30px" }}>
-              <Typography
-                color="white"
-                variant="h6"
-                style={{ fontWeight: "lighter" }}
-              >
-                Bookmarks
-              </Typography>
-            </div>
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem
-          disablePadding
-          style={{
-            marginTop: "20px",
-            width: "45%",
-            borderRadius: "20px",
-          }}
-        >
-          <ListItemButton
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <ListAltIcon
-              style={{ color: "white", width: "30px", height: "30px" }}
-            />
-            <div style={{ width: "100%", marginLeft: "30px" }}>
-              <Typography
-                color="white"
-                variant="h6"
-                style={{ fontWeight: "lighter" }}
-              >
-                Lists
-              </Typography>
-            </div>
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem
-          disablePadding
-          style={{
-            marginTop: "20px",
-            width: "50%",
-            borderRadius: "20px",
-          }}
-        >
-          <ListItemButton
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <PersonOutlineIcon
-              style={{ color: "white", width: "30px", height: "30px" }}
-            />
-            <div style={{ width: "100%", marginLeft: "30px" }}>
-              <Typography
-                color="white"
-                variant="h6"
-                style={{ fontWeight: "lighter" }}
-              >
-                Profile
-              </Typography>
-            </div>
-          </ListItemButton>
-        </ListItem>
+            <ListItemButton
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              {list.icon}
+              <div style={{ width: "100%", marginLeft: "30px" }}>
+                <Typography
+                  color="white"
+                  variant="h6"
+                  style={{ fontWeight: `${i === 0 ? 'bolder' : 'lighter'}` }}
+                >
+                  {list.text}
+                </Typography>
+              </div>
+            </ListItemButton>
+          </ListItem>
+        ))}
 
         <Button
           style={{
@@ -257,6 +105,7 @@ export const ListHomePage = ({ onClick }) => {
         >
           Post
         </Button>
+        <CardProfile />
       </List>
     </>
   );

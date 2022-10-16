@@ -5,9 +5,14 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import TextsmsIcon from "@mui/icons-material/Textsms";
 import SendIcon from "@mui/icons-material/Send";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { CommentsDetail } from "./CommentsDetail";
+import { useNavigate } from "react-router-dom";
 
-export const NewPost = () => {
+export const NewPost = ({ detail }) => {
   const [liked, setLiked] = useState(false);
+  const navigate = useNavigate()
+  console.log(detail);
 
   return (
     <div
@@ -18,14 +23,32 @@ export const NewPost = () => {
         borderBottom: "1px solid rgb(113, 118, 123)",
         padding: "10px 15px",
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
       }}
     >
+      {detail && (
+        <div
+          style={{
+            width: "100%",
+            height: "50px",
+            display: "flex",
+            alignItems: "center",
+            marginBottom: '20px'
+          }}
+        >
+          <IconButton onClick={() => navigate('/home')}>
+            <ArrowBackIcon style={{ color: "white", marginRight: "21px" }} />
+          </IconButton>
+          <Typography variant="h6" color={"white"} fontWeight="bold">
+            Post
+          </Typography>
+        </div>
+      )}
       <div
         style={{
           width: "100%",
           height: "100%",
-          display: "grid",
+          display: `${detail ? "flex" : "grid"}`,
           gridTemplateColumns: "0.2fr 1fr",
         }}
       >
@@ -56,7 +79,7 @@ export const NewPost = () => {
             color="white"
           >
             Freddy Vega{" "}
-            <span style={{ color: "rgb(113, 118, 123)" }}>@freddier . 1h</span>
+            <span style={{ color: "rgb(113, 118, 123)" }}>@freddier · 1h</span>
           </Typography>
           <Typography color={"white"}>
             Que maravilla. <br />
@@ -72,6 +95,26 @@ export const NewPost = () => {
               alt=""
             />
           </figure>
+          {detail && (
+            <div
+              style={{
+                borderTop: "1px solid rgb(113, 118, 123)",
+                borderBottom: "1px solid rgb(113, 118, 123)",
+                width: "100%",
+                height: "50px",
+                marginTop: "20px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <Typography style={{ marginRight: "20px" }} color={"white"}>
+                5 <span style={{ color: "rgb(113, 118, 123)" }}>Reposts</span>
+              </Typography>
+              <Typography color={"white"}>
+                18 <span style={{ color: "rgb(113, 118, 123)" }}>Likes</span>
+              </Typography>
+            </div>
+          )}
           <div
             style={{
               width: "100%",
@@ -88,12 +131,12 @@ export const NewPost = () => {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    color: 'rgb(249, 24, 128)',
+                    color: "rgb(249, 24, 128)",
                     fontSize: "17px",
                   }}
                 >
                   <FavoriteIcon
-                    style={{ color: 'rgb(249, 24, 128)', marginRight: "10px" }}
+                    style={{ color: "rgb(249, 24, 128)", marginRight: "10px" }}
                   />{" "}
                   8
                 </span>
@@ -144,6 +187,9 @@ export const NewPost = () => {
               </span>
             </IconButton>
           </div>
+          {detail && (
+            <CommentsDetail />
+          )}
         </div>
       </div>
     </div>
